@@ -5,6 +5,16 @@ from typing import List
 
 
 list_of_incomes: List[int] = list()
+list_of_expenses: List[int] = list()
+
+
+def amount_of_expense(expense: int) -> List[int]:
+    for amount in range(expense):
+        expense = int(input("Enter expense amount:\n>>> "))
+        assert expense > 0, "Expense must be greater than 0"
+
+        list_of_expenses.append(expense)
+    return list_of_expenses
 
 
 def get_amount_expense() -> int:
@@ -55,4 +65,8 @@ if __name__ == '__main__':
 
     income_amount = get_amount_of_income()
     income_list: List[int] = enter_income_amounts(income_amount)
-    expense_amount = get_amount_expense()
+    income_expense = amount_of_expense(get_amount_expense())
+    total_income = sum(income_list)
+
+    print("Your total income is: ", total_income)
+    print("Your total expense is: ", sum(income_expense))
